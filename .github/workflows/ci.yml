@@ -30,6 +30,7 @@ jobs:
       - name: Run linter (flake8)
         run: |
           flake8 . || true
+          working-directory: Exp7
 
       - name: Run tests (pytest)
         run: pytest -v
