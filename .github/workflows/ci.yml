@@ -18,7 +18,7 @@
 #   run: pytest -v
 
 
-name: CI/CD Pipeline for Zomato API
+name: CI/CD Pipeline for Shark Tank API
 
 on:
   push:
@@ -39,15 +39,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install DVC and GDrive dependencies
-        run: pip install dvc[gdrive]
-
-      - name: Authenticate with Google Drive
-        run: |
-          # Create the credentials file from the GitHub Secret
-          echo "${{ secrets.GDRIVE_CREDENTIALS_JSON }}" > gcp_creds.json
-          # Configure DVC to use this key file
-          dvc remote modify myremote gdrive_service_account_json_file_path gcp_creds.json
       
       - name: Lint with flake8
         run: |
